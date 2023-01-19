@@ -46,11 +46,24 @@ public class CadastroTest {
         Thread.sleep(2000);
         navegador.findElement(By.cssSelector("div[id=\"msdd\"]")).click();
         Thread.sleep(2000);
-        for (By by : Arrays.asList(By.xpath("//multi-select//div//ul//li[1]"),
-                By.cssSelector("input[type='tel']"), By.cssSelector("select[id=\"Skills\"]"),
+        for (By by : Arrays.asList(
+                By.xpath("//multi-select//div//ul//li[1]"),
+                By.cssSelector("input[type='tel']"),
+                By.cssSelector("select[id=\"Skills\"]"),
                 By.cssSelector("option[value='Adobe Photoshop']"),
-                By.cssSelector("span[tabindex=\"-1\"]"))) {
-            navegador.findElement(by).click();
+                By.cssSelector("span[tabindex=\"-1\"]"),
+                By.cssSelector("option[value=\"Hong Kong\"]"),
+                By.cssSelector("select[id=\"yearbox\"]"),
+                By.cssSelector("OPTION[value=\"1916\"]"),
+                By.cssSelector("select[placeholder=\"Month\"]"),
+                By.cssSelector("option[value=\"January\"]"),
+                By.cssSelector("select[id=\"daybox\"]"),
+                By.cssSelector("option[value=\"13\"]")
+                )) {            navegador.findElement(by).click();        }
+        for (String s : Arrays.asList("input[id=\"firstpassword\"]",
+                "input[id=\"secondpassword\"]")) {
+            navegador.findElement(By.id(s)).click();
+            navegador.findElement(By.id(s)).sendKeys("12345678");
         }
 
     }
