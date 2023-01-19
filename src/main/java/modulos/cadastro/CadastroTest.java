@@ -41,11 +41,10 @@ public class CadastroTest {
         navegador.findElement(By.cssSelector("input[id='checkbox1']")).click();
         navegador.findElement(By.cssSelector("input[id='checkbox2']")).click();
         navegador.findElement(By.cssSelector("input[id='checkbox3']")).click();
-        Thread.sleep(2000);
+        Thread.sleep(500);
         navegador.findElement(By.cssSelector("div[id=\"msdd\"]")).click();
-        Thread.sleep(2000);
-        navegador.findElement(By.cssSelector("div[id=\"msdd\"]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(500);
+
         for (By by : Arrays.asList(
                 By.xpath("//multi-select//div//ul//li[1]"),
                 By.cssSelector("input[type='tel']"),
@@ -59,13 +58,12 @@ public class CadastroTest {
                 By.cssSelector("option[value=\"January\"]"),
                 By.cssSelector("select[id=\"daybox\"]"),
                 By.cssSelector("option[value=\"13\"]")
-                )) {            navegador.findElement(by).click();        }
-        for (String s : Arrays.asList("input[id=\"firstpassword\"]",
-                "input[id=\"secondpassword\"]")) {
-            navegador.findElement(By.id(s)).click();
-            navegador.findElement(By.id(s)).sendKeys("12345678");
+                )) {            navegador.findElement(by).click();
         }
-
+        navegador.findElement(By.id("input[id=\"firstpassword\"]")).click();
+        navegador.findElement(By.id("input[id=\"firstpassword\"]")).sendKeys("123123123123");
+        navegador.findElement(By.id("input[id=\"secondpassword\"]")).click();
+        navegador.findElement(By.id("input[id=\"secondpassword\"]")).sendKeys("123123123123");
     }
    /* @AfterEach
     public void afterEach(){
