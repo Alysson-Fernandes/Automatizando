@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Arrays;
+
 @DisplayName("Teste Web do Cadastro de Usuario")
 public class CadastroTest {
     private WebDriver navegador;
@@ -23,7 +25,7 @@ public class CadastroTest {
     }
     @Test
     @DisplayName("Cadastrar Usuario")
-    public void cadastroDeUsuarioCompleto(){
+    public void cadastroDeUsuarioCompleto() throws InterruptedException {
         //Registrar o Usuário
         navegador.findElement(By.cssSelector("input[placeholder=\"First Name\"]")).click();
         navegador.findElement(By.cssSelector("input[placeholder=\"First Name\"]")).sendKeys("Alysson");
@@ -39,20 +41,22 @@ public class CadastroTest {
         navegador.findElement(By.cssSelector("input[id='checkbox1']")).click();
         navegador.findElement(By.cssSelector("input[id='checkbox2']")).click();
         navegador.findElement(By.cssSelector("input[id='checkbox3']")).click();
+        Thread.sleep(2000);
         navegador.findElement(By.cssSelector("div[id=\"msdd\"]")).click();
-        navegador.findElement(By.xpath("//multi-select//div//ul//li[1]")).click();
-        navegador.findElement(By.xpath("//multi-select//div//ul//li[3]")).click();
-        navegador.findElement(By.xpath("//multi-select//div//ul//li[5]")).click();
-        navegador.findElement(By.xpath("//multi-select//div//ul//li[7]")).click();
-        navegador.findElement(By.xpath("//multi-select//div//ul//li[9]")).click();
-        navegador.findElement(By.cssSelector("input[type='tel']")).click();
-        navegador.findElement(By.cssSelector("select[id=\"Skills\"]")).click();
-        //navegador.findElement(By.cssSelector("option[value='Adobe Photoshop']")).click();
-       // navegador.findElement(By.cssSelector("select[id=\"country\"]")).click();
+        Thread.sleep(2000);
+        navegador.findElement(By.cssSelector("div[id=\"msdd\"]")).click();
+        Thread.sleep(2000);
+        for (By by : Arrays.asList(By.xpath("//multi-select//div//ul//li[1]"),
+                By.cssSelector("input[type='tel']"), By.cssSelector("select[id=\"Skills\"]"),
+                By.cssSelector("option[value='Adobe Photoshop']"),
+                By.cssSelector("span[tabindex=\"-1\"]"))) {
+            navegador.findElement(by).click();
+        }
+
     }
-    @AfterEach
+   /* @AfterEach
     public void afterEach(){
         //fechar o navegador
         navegador.quit();
-    }
+    }*/
 }
