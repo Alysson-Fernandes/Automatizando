@@ -58,12 +58,12 @@ public class CadastroTest {
                 By.cssSelector("option[value=\"January\"]"),
                 By.cssSelector("select[id=\"daybox\"]"),
                 By.cssSelector("option[value=\"13\"]")
-                )) {            navegador.findElement(by).click();
-        }
-        navegador.findElement(By.id("input[id=\"firstpassword\"]")).click();
-        navegador.findElement(By.id("input[id=\"firstpassword\"]")).sendKeys("123123123123");
-        navegador.findElement(By.id("input[id=\"secondpassword\"]")).click();
-        navegador.findElement(By.id("input[id=\"secondpassword\"]")).sendKeys("123123123123");
+                )) { navegador.findElement(by).click();        }
+        navegador.findElement(By.cssSelector("input[id=\"firstpassword\"]")).click();
+        navegador.findElement(By.cssSelector("input[id=\"firstpassword\"]")).sendKeys("123123123123");
+        navegador.findElement(By.cssSelector("input[id=\"secondpassword\"]")).click();
+        navegador.findElement(By.cssSelector("input[id=\"secondpassword\"]")).sendKeys("123123123123");
+        navegador.findElement(By.cssSelector(q"button[id='submitbtn']")).click();
     }
    /* @AfterEach
     public void afterEach(){
